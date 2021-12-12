@@ -1,0 +1,19 @@
+.login_container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #ebebeb;
+}
+.login_wrapper {
+  width: 600px;
+  padding: 70px;
+  border-radius: 10px;
+}
+.login_checkContainer {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 15px;
+}
