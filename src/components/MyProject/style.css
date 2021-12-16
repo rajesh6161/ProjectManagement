@@ -21,3 +21,7 @@
 .my_project_wrapper {
   padding: 24px;
 }
+.tableContainer {
+  height: 400px !important;
+  overflow-y: scroll;
+}

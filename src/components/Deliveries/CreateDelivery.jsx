@@ -10,11 +10,7 @@ const initialState = {
   projectManager: '',
   attachments: '',
 };
-const AddNewProject = ({
-  collapsed,
-  handleToggleSidebar,
-  handleCollapsedChange,
-}) => {
+const CreateDelivery = () => {
   const [formData, setFormData] = useState(initialState);
   const onChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -25,25 +21,7 @@ const AddNewProject = ({
   return (
     <>
       <main className="main_container">
-        <nav className="navbar">
-          <Switch
-            height={16}
-            width={30}
-            checkedIcon={false}
-            uncheckedIcon={false}
-            onChange={handleCollapsedChange}
-            checked={collapsed}
-            onColor="#219de9"
-            offColor="#bbbbbb"
-          />
-          <FaYarn style={{ fontSize: '40px', color: 'gold' }} />
-        </nav>
-        <div className="btn-toggle" onClick={() => handleToggleSidebar(true)}>
-          <FaBars />
-        </div>
-
         <div className="mainSection">
-          <h1>Add New Project</h1>
           <div className="formSection">
             <div className="_formContainer">
               <form onSubmit={(e) => onSubmit(e)}>
@@ -62,9 +40,9 @@ const AddNewProject = ({
                     <input
                       type="text"
                       className="form-control"
-                      placeholder="Start Date"
-                      name="startDate"
-                      value={formData.startDate}
+                      placeholder="Item Name"
+                      name="itemName"
+                      value={formData.itemName}
                       onChange={(e) => onChange(e)}
                     />
                   </div>
@@ -74,9 +52,9 @@ const AddNewProject = ({
                     <input
                       type="text"
                       className="form-control"
-                      placeholder="Forecast Completion Date"
-                      name="forecastCompletionDate"
-                      value={formData.forecastCompletionDate}
+                      placeholder="Business Justification"
+                      name="businessJustification"
+                      value={formData.businessJustification}
                       onChange={(e) => onChange(e)}
                     />
                   </div>
@@ -94,11 +72,21 @@ const AddNewProject = ({
                 <div className="row pb-3">
                   <div className="col col-md-6">
                     <input
-                      type="file"
+                      type="text"
                       className="form-control"
-                      placeholder="Upload Attachments"
-                      name="attachments"
-                      value={formData.attachments}
+                      placeholder="Quantity"
+                      name="qty"
+                      value={formData.qty}
+                      onChange={(e) => onChange(e)}
+                    />
+                  </div>
+                  <div className="col col-md-6">
+                    <input
+                      type="text"
+                      className="form-control"
+                      placeholder="Email"
+                      name="email"
+                      value={formData.email}
                       onChange={(e) => onChange(e)}
                     />
                   </div>
@@ -115,4 +103,4 @@ const AddNewProject = ({
   );
 };
 
-export default AddNewProject;
+export default CreateDelivery;

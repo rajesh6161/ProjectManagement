@@ -4,13 +4,16 @@ import { FaBars, FaYarn } from 'react-icons/fa';
 import './styles.css';
 
 const initialState = {
-  projectName: '',
-  startDate: '',
-  forecastCompletionDate: '',
-  projectManager: '',
-  attachments: '',
+  firstName: '',
+  lastName: '',
+  phoneNumber: '',
+  email: '',
+  profilePhoto: '',
+  isAdmin: true,
+  isSuperAdmin: false,
+  isSubContractor: false,
 };
-const AddNewProject = ({
+const AddNewUser = ({
   collapsed,
   handleToggleSidebar,
   handleCollapsedChange,
@@ -18,6 +21,10 @@ const AddNewProject = ({
   const [formData, setFormData] = useState(initialState);
   const onChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
+
+  const handleCheckBox = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.checked });
+  };
   const onSubmit = (e) => {
     e.preventDefault();
     console.log(formData);
@@ -43,7 +50,7 @@ const AddNewProject = ({
         </div>
 
         <div className="mainSection">
-          <h1>Add New Project</h1>
+          <h1>Add New User</h1>
           <div className="formSection">
             <div className="_formContainer">
               <form onSubmit={(e) => onSubmit(e)}>
@@ -52,9 +59,9 @@ const AddNewProject = ({
                     <input
                       type="text"
                       className="form-control"
-                      placeholder="Project Name"
-                      name="projectName"
-                      value={formData.projectName}
+                      placeholder="First Name"
+                      name="firstName"
+                      value={formData.firstName}
                       onChange={(e) => onChange(e)}
                     />
                   </div>
@@ -62,9 +69,9 @@ const AddNewProject = ({
                     <input
                       type="text"
                       className="form-control"
-                      placeholder="Start Date"
-                      name="startDate"
-                      value={formData.startDate}
+                      placeholder="Last Name"
+                      name="lastName"
+                      value={formData.lastName}
                       onChange={(e) => onChange(e)}
                     />
                   </div>
@@ -74,9 +81,9 @@ const AddNewProject = ({
                     <input
                       type="text"
                       className="form-control"
-                      placeholder="Forecast Completion Date"
-                      name="forecastCompletionDate"
-                      value={formData.forecastCompletionDate}
+                      placeholder="Email"
+                      name="email"
+                      value={formData.email}
                       onChange={(e) => onChange(e)}
                     />
                   </div>
@@ -84,11 +91,47 @@ const AddNewProject = ({
                     <input
                       type="text"
                       className="form-control"
-                      placeholder="Project Manager"
-                      name="projectManager"
-                      value={formData.projectManager}
+                      placeholder="Phone Number"
+                      name="phoneNumber"
+                      value={formData.phoneNumber}
                       onChange={(e) => onChange(e)}
                     />
+                  </div>
+                </div>
+                <div className="mb-3">
+                  <div className="form-check">
+                    <input
+                      className="form-check-input"
+                      type="checkbox"
+                      name="isAdmin"
+                      checked={formData.isAdmin}
+                      onChange={(e) => handleCheckBox(e)}
+                    />
+                    <label className="form-check-label ">Make Admin</label>
+                  </div>
+                  <div className="form-check">
+                    <input
+                      className="form-check-input"
+                      type="checkbox"
+                      name="isSuperAdmin"
+                      checked={formData.isSuperAdmin}
+                      onChange={(e) => handleCheckBox(e)}
+                    />
+                    <label className="form-check-label ml-">
+                      Make Super Admin
+                    </label>
+                  </div>
+                  <div className="form-check">
+                    <input
+                      className="form-check-input"
+                      type="checkbox"
+                      name="isSubContractor"
+                      checked={formData.isSubContractor}
+                      onChange={(e) => handleCheckBox(e)}
+                    />
+                    <label className="form-check-label ml-">
+                      Make Sub-Contractor
+                    </label>
                   </div>
                 </div>
                 <div className="row pb-3">
@@ -96,9 +139,9 @@ const AddNewProject = ({
                     <input
                       type="file"
                       className="form-control"
-                      placeholder="Upload Attachments"
-                      name="attachments"
-                      value={formData.attachments}
+                      placeholder="Profile Photo"
+                      name="profilePhoto"
+                      value={formData.profilePhoto}
                       onChange={(e) => onChange(e)}
                     />
                   </div>
@@ -115,4 +158,4 @@ const AddNewProject = ({
   );
 };
 
-export default AddNewProject;
+export default AddNewUser;

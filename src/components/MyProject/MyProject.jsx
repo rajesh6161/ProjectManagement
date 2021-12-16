@@ -8,13 +8,14 @@ import {
   FaYarn,
 } from 'react-icons/fa';
 import './style.css';
+import Table from './Table';
 
 const MyProject = ({
   collapsed,
   handleToggleSidebar,
   handleCollapsedChange,
 }) => {
-  const [tab, setTab] = useState('Main Table');
+  const [tab, setTab] = useState('MainTable');
   const [mainTable, setMainTable] = useState(true);
   const [map, setMap] = useState(false);
   const [timeline, setTimeline] = useState(false);
@@ -81,6 +82,7 @@ const MyProject = ({
             </p>
           </div>
         </div>
+        <div className="mainSection">{tab == 'MainTable' && <Table />}</div>
       </main>
     </>
   );

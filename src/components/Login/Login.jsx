@@ -1,9 +1,26 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Switch from 'react-switch';
 import { FaBars, FaYarn } from 'react-icons/fa';
 import './styles.css';
 
 const Login = ({ collapsed, handleToggleSidebar, handleCollapsedChange }) => {
+  const emailRef = useRef();
+  const passwordRef = useRef();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  useEffect(() => {
+    localStorage.getItem('email') && setEmail(localStorage.getItem('email'));
+    localStorage.getItem('password') &&
+      setPassword(localStorage.getItem('password'));
+  }, []);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(emailRef.current.value, passwordRef.current.value);
+    localStorage.setItem('email', emailRef.current.value);
+    localStorage.setItem('password', passwordRef.current.value);
+  };
   return (
     <>
       <main className="main_container">
@@ -27,7 +44,7 @@ const Login = ({ collapsed, handleToggleSidebar, handleCollapsedChange }) => {
         <div className="login_container">
           <div className="login_wrapper card">
             <h2 className="card-title">ACCOUNT LOGIN</h2>
-            <div className="main_login mt-3 mb-3">
+            <form className="main_login mt-3 mb-3" onSubmit={handleSubmit}>
               <div className="mb-3">
                 <label for="email" className="form-label">
                   Email address
@@ -37,6 +54,7 @@ const Login = ({ collapsed, handleToggleSidebar, handleCollapsedChange }) => {
                   className="form-control form-control-lg"
                   id="email"
                   placeholder="name@example.com"
+                  ref={emailRef}
                 />
               </div>
               <div className="mb-3">
@@ -48,6 +66,7 @@ const Login = ({ collapsed, handleToggleSidebar, handleCollapsedChange }) => {
                   className="form-control form-control-lg"
                   id="password"
                   placeholder="********"
+                  ref={passwordRef}
                 />
               </div>
               <div className="login_checkContainer">
@@ -68,8 +87,10 @@ const Login = ({ collapsed, handleToggleSidebar, handleCollapsedChange }) => {
                   </p>
                 </div>
               </div>
-              <button className="btn btn-dark w-100">Login</button>
-            </div>
+              <button className="btn btn-dark w-100" type="submit">
+                Login
+              </button>
+            </form>
           </div>
         </div>
       </main>
