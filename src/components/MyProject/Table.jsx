@@ -1,4 +1,5 @@
 import React from 'react';
+import { MdOutlineDone } from 'react-icons/md';
 import './style.css';
 
 const Table = () => {
@@ -27,7 +28,9 @@ const Table = () => {
               <td>87%</td>
               <td>$4566</td>
               <td>None</td>
-              <td>Done</td>
+              <td className="text-center">
+                <MdOutlineDone />
+              </td>
             </tr>
           ))}
         </tbody>

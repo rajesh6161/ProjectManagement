@@ -66,13 +66,13 @@ const MyProject = ({
               <FaBuilding />
               Main Table
             </p>
-            <p
+            {/* <p
               onClick={() => tabHandler('Map')}
               style={map ? { borderBottom: '5px solid gold' } : null}
             >
               <FaMapMarkerAlt />
               Map
-            </p>
+            </p> */}
             <p
               onClick={() => tabHandler('Timeline')}
               style={timeline ? { borderBottom: '5px solid gold' } : null}

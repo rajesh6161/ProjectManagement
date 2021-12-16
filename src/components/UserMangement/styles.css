@@ -1,0 +1,5 @@
+.users_tableContainer {
+  max-height: 550px !important;
+
+  overflow-y: scroll;
+}

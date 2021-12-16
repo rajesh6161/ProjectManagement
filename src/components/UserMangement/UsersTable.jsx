@@ -1,8 +1,9 @@
 import React from 'react';
+import { FaCheck, FaTimes } from 'react-icons/fa';
 
 const Table = () => {
   return (
-    <div className="users_tableContainer">
+    <div>
       <table className="table">
         <thead>
           <tr>
@@ -16,15 +17,21 @@ const Table = () => {
           </tr>
         </thead>
         <tbody>
-          {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((i) => (
+          {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15].map((i) => (
             <tr key={i}>
               <th>John </th>
               <td>Doe</td>
               <td>john@gmail.com</td>
               <td>9167564532</td>
-              <td>true</td>
-              <td>false</td>
-              <td>false</td>
+              <td className="text-center">
+                <FaTimes />
+              </td>
+              <td className="text-center">
+                <FaCheck />
+              </td>
+              <td className="text-center">
+                <FaTimes />
+              </td>
             </tr>
           ))}
         </tbody>

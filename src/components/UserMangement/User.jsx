@@ -31,7 +31,9 @@ const AddNewUser = ({
 
         <div className="mainSection">
           <h1>Current Users</h1>
-          <UsersTable />
+          <div className="users_tableContainer">
+            <UsersTable />
+          </div>
         </div>
       </main>
     </>
